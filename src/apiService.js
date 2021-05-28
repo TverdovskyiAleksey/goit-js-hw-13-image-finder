@@ -13,7 +13,7 @@ export default class CardApiService {
                 return data.hits;
             })
             .catch(error =>
-                console.log(error, 'error'));
+                console.log('error', error));
     }
 
     resetPage() {
