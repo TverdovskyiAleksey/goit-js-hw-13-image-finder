@@ -6,12 +6,14 @@ export default class CardApiService {
     }
     
     fetchArticles() {
-    return fetch(`https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=12&key=${PAGE_KEY}`)
-        .then(r => r.json())
-        .then(data => {
-            this.page += 1;
-            return data.hits;
-        });
+        return fetch(`https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=12&key=${PAGE_KEY}`)
+            .then(r => r.json())
+            .then(data => {
+                this.page += 1;
+                return data.hits;
+            })
+            .catch(error =>
+                console.log(error, 'error'));
     }
 
     resetPage() {
